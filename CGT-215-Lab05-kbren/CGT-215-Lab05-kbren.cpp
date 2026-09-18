@@ -24,6 +24,15 @@ char translate(char c, const vector<char>& code) {
 	}		
 }
 
+//translates each character (char c) in a loop, and adds to string result.
+string translateCode(const string& text, const vector<char>& code) {
+	string result = "";
+	for (char c : text) {
+		result += translate(c, code);
+	}
+	return result;
+}
+
 int main()
 {
 	vector<char> code = {
@@ -33,5 +42,9 @@ int main()
 	string text;
 	getline(cin, text);
 
+	//"output" is the translateCode function applied to 'text' (user entered text) and referenced to the vector 'code'
+	string output = translateCode(text, code);
 
+	cout << "Translated text:" << endl;
+	cout << output << endl;
 }
